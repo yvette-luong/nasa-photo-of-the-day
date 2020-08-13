@@ -4,7 +4,20 @@ import "./App.css";
 import axios from 'axios';
 import Header from "./Header";
 import Card from './Card';
+import Footer from './Footer'
+import styled from 'styled-components'
 
+const AppStyle = styled.div`
+background-color: #14213d;
+color: #f1faee;
+title {
+  color : white;
+};
+p {
+  font-size: 1.6rem;
+  color: #f1faee;
+}
+`
 
 export default function App() {
   const [data, setData]  = useState([])
@@ -23,12 +36,13 @@ export default function App() {
   return (
     <div className="App">
       <p>
-      <Header/>
-      <Card photo={data}/>
-      <span role="img" aria-label='go!'>🚀</span>!
+        <AppStyle>
+          <Header/>
+          <Card photo={data} content={data} title={data}/>
+          <Footer/>
+        </AppStyle>          
       </p>
     </div>
   );
 }
-
 ;
